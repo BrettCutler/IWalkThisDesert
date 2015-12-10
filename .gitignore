@@ -3,3 +3,5 @@
 /*.suo
 /Library
 /obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Temp/
+*.lnk

@@ -23,15 +23,17 @@ namespace UnitySampleAssets.Utility
         public GameObject source;
         public int triggerCount = 1;
         public bool repeatTrigger = false;
+        public bool otherIsTarget = false;          // If true, object we collided with becomes target. Mutually exclusive with setting "target"
 
 
-        private void DoActivateTrigger()
+        private void DoActivateTrigger( Collider other )
         {
             triggerCount--;
 
             if (triggerCount == 0 || repeatTrigger)
             {
                 Object currentTarget = target ?? gameObject;
+                if( otherIsTarget ) currentTarget = other.gameObject;
                 Behaviour targetBehaviour = currentTarget as Behaviour;
                 GameObject targetGameObject = currentTarget as GameObject;
                 if (targetBehaviour != null)
@@ -89,7 +91,7 @@ namespace UnitySampleAssets.Utility
 
         private void OnTriggerEnter(Collider other)
         {
-            DoActivateTrigger();
+            DoActivateTrigger( other );
         }
     }
 }

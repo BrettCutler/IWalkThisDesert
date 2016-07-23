@@ -1,0 +1,15 @@
+HIGH-LEVEL
+- Mission:
+  Create tension and consequence for conversation as exists in a roguelike.
+  - How to do so?
+    - unreversible conversation
+    - possibility of death from conversation
+      - or character loss, damage
+    - If death,
+      - Player cannot load save (autosave only?)
+      - Player can only play once
+    **- Multiple characters, player cannot load
+        - so the multiple characters interact with each other, sometimes
+        - reveal different aspects of the story
+        - but each can screw up, the end, kaput. Get another one you bum
+          - and then each player gets a different experience!!

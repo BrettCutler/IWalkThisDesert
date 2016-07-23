@@ -1,0 +1,55 @@
+{
+  "Conversations":[
+    {
+      "ConversationNodes":[
+        {
+            "name": "ScragglerMeetup1",
+            "content": "Well, guess you're stuck here, huh?",
+            "conditions":[
+              {
+                "property": "FirstTimeMeetScraggler",
+                "operand": "EQ",
+                "value": 0
+              }
+            ],
+            "outputEdges": [
+              "ScragglerMeetup2",
+              "ScragglerMeetup2NoGun",
+              "ScragglerMeetup2NoBath"
+            ],
+            "entryPoint": true,
+            "isPlayerQuery": false
+        },
+        {
+          "name": "ScragglerMeetup2",
+          "content": "Or now, I'm stuck with you.",
+          "conditions":[
+          ],
+          "outputEdges": [
+            "ScragglerMeetup3GetOut",
+            "ScragglerMeetup3KillYou",
+            "ScragglerMeetup3WelcomeFriend"
+          ],
+          "entryPoint": false,
+          "isPlayerQuery": true
+        },
+        {
+          "name": "ScragglerMeetup2NoGun",
+          "content": "",
+          "conditions":[
+            {
+            "property": ,
+            "operand": ,
+            "value":
+            }
+          ],
+          "outputEdges": [
+
+          ],
+          "entryPoint": ,
+          "isPlayerQuery"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+
+
+Design of Conversation System
+-------------------------------
+|Controller (ScrollingTextController)
+// this needs to scale up the bottom black bar based on number of lines present
+// at the least, it needs to be able to string compose several lines together --
+// think of a line awaiting a player response:
+//   * last line of setup
+//   * response 1
+//   * response X
+//   * selected response will need to be prepended with ">" and color-changed
+// input will need to be read
+
+UpdateInput()
+// if current node has no user input, and space is pressed, tell conversation to advance
+// if current node is awaiting a response,
+//   read up/down to change selection
+//   read 'advance' to select a response
+UpdateText()
+// read current text from conversation
+
+// print it up in successive lines
+// if we have the printing in the TextController, here we can add
+// printing characters over time, coloring, etc.
+
+|
+|
+|Conversation (Conversation)
+// this holds a bunch of conversation pieces
+// a conversation needs an entry point
+// conversation nodes can be exit points, or point back at an earlier point
+
+void AdvanceConversation()
+
+void ChangeSelection( up/down )
+// change which response is selected
+// ignore if the current conversation node isn't waiting for a response
+
+string PrintText()
+// returns a formatted (string?) showing current
+outputString.append(curNode)
+if( curNode.WaitForResponse)
+foreach( curNode.GetResponses)
+if( thisResponse == curResponseSelection )
+  outputString.append( '>')
+
+outputString.append( colorCode.Selection )
+
+if( thisResponse == curResponseSelection )
+  outputString.append( thisResponse )
+    outputString.append( closeColorTag )
+
+|
+|
+|Conversation Node ()
+bool MeetsConditions( )
+// returns true if all pre-conditions for playing are met
+int NumberOfConditions()
+// returns number of conditions. More conditions == more specific line;
+// the node with the highest number of conditions that meets them is selected
+
+// 2 main types of nodes:
+//  1) those with no user input, will select one output and display it
+//  2) those with a user response, will display all valid output nodes and user picks between them
+so, the response nodes are the same as type1, right? only the 'ask for response' node knows
+
+ConvNodes GetNext() // single-response type
+// call MeetsConditions, NumberOfConditions on successor nodes, pick the next one
+
+List<ConvNodes> GetResponses() // multi-response type
+// call MeetsConditions on successor nodes, display them all
+
+*** Nodes should write their name into the GameStateFacts as "have played" so they don't duplicate
+  * implicitly, this shouldn't require content creation
+
+// ConversationDataSample format, per node:
+  {
+    "name": ,
+    "content": ,
+    "conditions":[
+      {
+      "property": ,
+      "operand": ,
+      "value":
+      }
+    ],
+    "outputEdges": [
+
+    ],
+    "entryPoint": ,
+    "isPlayerQuery"
+  }

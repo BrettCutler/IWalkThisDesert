@@ -1,0 +1,9 @@
+Conversation System
+---------------------------
+* saving/loading GameStateFacts
+  * Including starting values for a new game
+
+* Get serialization working on ConversationNode, conversations, etc
+  * Look up how it was done in Galak-Z?
+    Nested classes containing their own serialize functions, etc
+  * Connect ConversationNode.outputEdge_Names to real  outputEdges

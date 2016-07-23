@@ -1,0 +1,194 @@
+{
+	"sheets": [
+		{
+			"name": "Conversations",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "name"
+				},
+				{
+					"typeStr": "1",
+					"name": "content",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "conditions"
+				},
+				{
+					"typeStr": "8",
+					"name": "outputEdges",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "entryPoint",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "isPlayerQuery",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"name": "ScragglerMeetup1",
+					"content": "[He looks up with a toothless grimace.] Well, wotta we got here?",
+					"conditions": [],
+					"outputEdges": [],
+					"entryPoint": true,
+					"isPlayerQuery": false
+				},
+				{
+					"name": "ScragglerMeetup2",
+					"content": "Or now, I'm stuck with you.",
+					"conditions": [],
+					"outputEdges": [
+						{
+							"edge": "ScragglerMeetup1"
+						}
+					],
+					"entryPoint": false,
+					"isPlayerQuery": true
+				},
+				{
+					"name": "ScragglerMeetup2NoGun",
+					"content": "I'm not afraid of you, though.",
+					"conditions": [
+						{
+							"property": "PlayerHasGun",
+							"operand": 0,
+							"value": 0
+						}
+					],
+					"outputEdges": [
+						{
+							"edge": "ScragglerMeetup3GetOut"
+						},
+						{
+							"edge": "ScragglerMeetup3KillYou"
+						},
+						{
+							"edge": "ScragglerMeetup3WelcomeFriend"
+						}
+					],
+					"entryPoint": false,
+					"isPlayerQuery": true
+				},
+				{
+					"name": "ScragglerMeetup2NoBath",
+					"content": "Phew, you sure do smell.",
+					"conditions": [
+						{
+							"property": "PlayerIsSmelly",
+							"operand": 0,
+							"value": 1
+						}
+					],
+					"outputEdges": [
+						{
+							"edge": "ScragglerMeetup3GetOut"
+						},
+						{
+							"edge": "ScragglerMeetup3KillYou"
+						},
+						{
+							"edge": "ScragglerMeetup3WelcomeFriend"
+						}
+					],
+					"entryPoint": false,
+					"isPlayerQuery": true
+				},
+				{
+					"name": "ScragglerMeetup3GetOut",
+					"content": "I don't think you understand what I'm here for. Get out of my sight.",
+					"conditions": [],
+					"outputEdges": [],
+					"entryPoint": false,
+					"isPlayerQuery": false
+				},
+				{
+					"name": "ScragglerMeetup3KillYou",
+					"content": "I'm going to need what you've got. [Shoot gun].",
+					"conditions": [
+						{
+							"property": "PlayerHasGun",
+							"operand": 0,
+							"value": 1
+						}
+					],
+					"outputEdges": [],
+					"entryPoint": false,
+					"isPlayerQuery": false
+				},
+				{
+					"name": "ScragglerMeetup3WelcomeFriend",
+					"content": "Finally, a friendly place in these wastes.",
+					"conditions": [],
+					"outputEdges": [],
+					"entryPoint": false,
+					"isPlayerQuery": false
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Conversations@conditions",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "property",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "Conversations@conditions",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "1",
+					"name": "property"
+				},
+				{
+					"typeStr": "5:EQ,GT,GTE,LT,LTE",
+					"name": "operand",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "value",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "Conversations@outputEdges",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Conversations",
+					"name": "edge"
+				}
+			]
+		}
+	],
+	"customTypes": [],
+	"compress": false
+}

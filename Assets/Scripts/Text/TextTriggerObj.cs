@@ -8,6 +8,6 @@ public class TextTriggerObj : MonoBehaviour
 
   public void DoActivateTrigger( )
   {
-    ScrollingTextController.Instance.QueueText( conversationToLoad);
+    //ScrollingTextController.Instance.QueueText( conversationToLoad);
   }
 }
